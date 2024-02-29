@@ -3,6 +3,7 @@ from django.contrib import messages
 from .forms import *
 from django.views import generic
 from youtubesearchpython import VideosSearch
+import requests 
 
 # Create your views here.
 def home(request):
@@ -57,6 +58,8 @@ def homework(request):
         homework_done=True
     else:
         homework_done=False
+    print(homework)
+    print("Len of homework is",len(homework))
     context={
         'homeworks':homework,
         'homewoks_done':homework_done,
@@ -113,3 +116,84 @@ def youtube(request):
         form=DashboardForm()
     context={'form':form}
     return render(request,'portal/youtube.html',context)
+
+def todo(request):
+    if request.method=="POST":
+        form=TodoForm(request.POST)
+        if form.is_valid():
+            try:
+                finished=request.POST['status']
+                if finished == 'on':
+                    finished = True
+                else:
+                    finished = False
+            except:
+                finished=False
+            todo=Todo(user=request.user,title=request.POST['title'],status=finished)
+            todo.save()
+            messages.success(request,"Task added successfully")
+            return redirect('todo')
+    else:
+        form=TodoForm()
+   
+    todo=Todo.objects.all()
+    if len(todo)==0:
+        todo_done=True
+    else:
+        todo_done=False
+    context= {'form':form, 'todos':todo,'todos_done':todo_done}
+    return render(request,'portal/todo.html',context)
+
+def update_todo(request,pk=None):
+    todo=Todo.objects.get(id=pk)
+    print(todo)
+    if todo.status == True:
+        todo.status =  False
+    else:
+        todo.status=True
+    todo.save()
+    return redirect('todo')
+
+def delete_todo(request,pk=None):
+    todo=Todo.objects.get(id=pk)
+    todo.delete()
+    messages.warning(request,"Task deleted Successfully")
+    return redirect('todo')
+
+# def (request):
+#     form=DashboardForm()
+#     context={'form':form}
+#     return render(request,'portal/books.html',context)
+
+def books(request):
+    if request.method == 'POST':
+        form=DashboardForm(request.POST)
+        text=request.POST['text']
+        url="https://www.googleapis.com/books/v1/volumes?q="+text
+        r=requests.get(url)
+        answer=r.json()
+        result_list=[]
+        for i in range(10):
+            result_dict={
+                'title':answer['items'][i]['volumeInfo']['title'],
+                'subtitle':answer['items'][i]['volumeInfo'].get('subtitle'),
+                'description':answer['items'][i]['volumeInfo'].get('description'),
+                'count':answer['items'][i]['volumeInfo'].get('pageCount'),
+                'category':answer['items'][i]['volumeInfo'].get('categories'),
+                'rating':answer['items'][i]['volumeInfo'].get('pageRating'),
+                'thumbnail':answer['items'][i]['volumeInfo'].get('imageLinks').get('thumbnail'),
+                'preview':answer['items'][i]['volumeInfo'].get('previewLink')
+            }
+        
+            result_list.append(result_dict)
+            context={
+                "form":form,
+                'results':result_list
+            }
+        print(context)
+        return render(request,'portal/books.html',context)
+
+    else:
+        form=DashboardForm()
+    context={'form':form}
+    return render(request,'portal/books.html',context)
