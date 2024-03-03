@@ -357,7 +357,7 @@ def conversion(request):
                 'input':False}
     return render(request, "portal/conversion.html",context)
 
-@login_required()
+
 def register(request):
     if  request.method=="POST":
         form=UserRegistrationForm(request.POST)
