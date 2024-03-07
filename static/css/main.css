@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Acme|Lobster|Patua+One|Rubik|Sniglet|Quicksand|Barlow");
 
+
+
+
 html {
     scroll-behavior: smooth;
     height: 100%;
@@ -10,6 +13,17 @@ html {
 main {
     font-family: Barlow, Quicksand, Rubik, sans-serif, serif, 'Times New Roman', Times, serif !important;
 }
+
+h3 {
+    color: #ece8e8; /* Change color to your desired color */
+  }
+
+body {
+    background-image: url("{% static 'images/background.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 
 footer {
     font-family: Rubik, sans-serif, serif, 'Times New Roman', Times, serif;

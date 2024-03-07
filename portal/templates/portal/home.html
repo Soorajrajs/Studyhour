@@ -2,18 +2,34 @@
 {% load static %} 
 {% block content %}
 
+<style>
+body {
+  background-image: url("{% static 'images/background1.jpg' %}");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+h2, h4 {
+  color: #ece8e8; /* Change color to your desired color */
+}
+
+
+</style>
+
 <section class="container text-center">
-  <h3>Welcome</h3>
+  <h2> <strong>Welcome Future Star!</strong></h2>
+  <h4> <strong>
+    "Empowering Minds, Enriching Futures: Your Gateway to Academic Success"</strong></h4>
 
   <hr> <br>
   <div class="row">
     <div class="col-md-3">
       <a href="notes">
         <div class="card">
-          <img class="card-img-top" src="{% static 'images/notes.jpg' %}" alt="Notes image">
+          <img class="card-img-top" src="{% static 'images/notes1.jpg' %}" alt="Notes image">
           <div class="card-body">
             <h5 class="card-title ">
-              Notes
+              <strong>Notes </strong>
             </h5>
             Create Notes to refer them later. They are stored permanently until deleted
           </div>
@@ -24,10 +40,10 @@
     <div class="col-md-3">
       <a href="homework">
         <div class="card">
-          <img class="card-img-top" src="{% static 'images/homework.jpg' %}" alt="Notes image">
+          <img class="card-img-top" src="{% static 'images/homework1.jpg' %}" alt="Notes image">
           <div class="card-body">
             <h5 class="card-title ">
-              Homework
+              <strong>Homework </strong>
             </h5>
             Add homeworks and assign them deadlines. They will be displayed prioritised by deadlines
           </div>
@@ -37,10 +53,10 @@
     <div class="col-md-3">
       <a href="youtube">
         <div class="card">
-          <img class="card-img-top" src="{% static 'images/youtube.jpg' %}" alt="Youtube image">
+          <img class="card-img-top" src="{% static 'images/youtube1.jpg' %}" alt="Youtube image">
           <div class="card-body">
             <h5 class="card-title ">
-              Youtube
+              <strong>YouTube </strong>
             </h5>
             Search Youtube and select your desired video to play it on youtube
           </div>
@@ -50,10 +66,10 @@
     <div class="col-md-3">
       <a href="todo">
         <div class="card">
-          <img class="card-img-top" src="{% static 'images/todo.jpg' %}" alt="Todo image">
+          <img class="card-img-top" src="{% static 'images/todo1.jpg' %}" alt="Todo image">
           <div class="card-body">
             <h5 class="card-title ">
-              To Do
+              <strong>To Do </strong>
             </h5>
             Add your to-do lists for your day and remove them as you finish
           </div>
@@ -66,10 +82,10 @@
     <div class="col-md-3 ">
       <a href="books">
         <div class="card mt-20">
-          <img class="card-img-top" src="{% static 'images/books.jpg' %}" alt="Book image">
+          <img class="card-img-top" src="{% static 'images/books1.jpg' %}" alt="Book image">
           <div class="card-body">
             <h5 class="card-title ">
-              Books
+              <strong>Books </strong>
             </h5>
             Browse books from a list of neatly organised book menu
           </div>
@@ -82,10 +98,10 @@
     <div class="col-md-3">
       <a href="dictionary">
         <div class="card">
-          <img class="card-img-top" src="{% static 'images/dictionary.jpg' %}" alt="Dictionary image">
+          <img class="card-img-top" src="{% static 'images/dictionary1.jpg' %}" alt="Dictionary image">
           <div class="card-body">
             <h5 class="card-title ">
-              Dictionary
+              <strong>Dictionary </strong>
             </h5>
             A vocabulary from a book is troubling you? No problem, enter the word, and the meaning will be displayed
             almost instantaneously.
@@ -96,10 +112,10 @@
     <div class="col-md-3">
       <a href="wiki">
         <div class="card">
-          <img class="card-img-top" src="{% static 'images/wiki.jpg' %}" alt="Wikipedia image">
+          <img class="card-img-top" src="{% static 'images/wiki1.jpg' %}" alt="Wikipedia image">
           <div class="card-body">
             <h5 class="card-title ">
-              WikiPedia
+              <strong>WikiPedia </strong>
             </h5>
             Homework and Assignments? Search wikipedia to get fast results
           </div>
@@ -111,10 +127,10 @@
     <div class="col-md-3">
       <a href="conversion">
         <div class="card">
-          <img class="card-img-top" src="{% static 'images/conversion.jpg' %}" alt="Conversion Scale image">
+          <img class="card-img-top" src="{% static 'images/conversion1.jpg' %}" alt="Conversion Scale image">
           <div class="card-body">
             <h5 class="card-title ">
-              Conversion
+              <strong>Coonversion </strong>
             </h5>
             Check out the conversion table, that helps you to convert measurements to more familiar ones of your choice.
           </div>
