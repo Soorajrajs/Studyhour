@@ -38,19 +38,10 @@
     {% if options %}
         <div class="container">
             <div class="content-section p-0 mt-5">
-                <h3>Choose one of the following options:</h3>
-                <form action="" method="post">
-                    {% csrf_token %}
-                    <select name="selected_option" class="form-select">
-                        {% for option in options %}
-                            <option value="{{ option }}">{{ option }}</option>
-                        {% endfor %}
-                    </select>
-                    <input class="btn btn-danger" type="submit" value="Select">
-                </form>
+                <h3>Multiple Result Found. Choose one of the following options and paste it in search..</h3>
             </div>
         </div>
-    {% endif %}
+    {% endif %} 
 
 </section>
 
